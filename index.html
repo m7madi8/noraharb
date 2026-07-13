@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0C1410">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<title>Nora | Vinyasa Yoga Teacher</title>
+<meta name="description" content="Premium vinyasa yoga with Nora — breath, balance, and inner stillness. RYT 300 certified.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<style>
+  :root{
+    --bg-deep:#0C1410;
+    --ivory:#F7F3EB;
+    --ivory-dim:#B8B3A6;
+    --sage:#8FA892;
+    --gold:#C4A265;
+    --gold-soft:#D4BA82;
+    --line:rgba(247,243,235,0.09);
+    --glow:rgba(196,162,101,0.12);
+    --page-pad-inline:max(20px, env(safe-area-inset-left, 0px), env(safe-area-inset-right, 0px));
+    --page-pad-y:max(12px, env(safe-area-inset-top, 0px));
+    --page-pad-bottom:max(24px, env(safe-area-inset-bottom, 0px));
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  html{
+    -webkit-text-size-adjust:100%;
+    text-size-adjust:100%;
+    scroll-behavior:smooth;
+  }
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(ellipse 800px 480px at 50% -8%, var(--glow), transparent 62%),
+      radial-gradient(ellipse 600px 420px at 8% 88%, rgba(143,168,146,0.10), transparent 58%),
+      radial-gradient(ellipse 500px 380px at 92% 72%, rgba(201,168,154,0.08), transparent 55%),
+      var(--bg-deep);
+    color:var(--ivory);
+    font-family:'Jost',sans-serif;
+    font-weight:400;
+    min-height:100vh;
+    min-height:100dvh;
+    display:flex;
+    justify-content:center;
+    padding-block:calc(36px + var(--page-pad-y)) calc(40px + var(--page-pad-bottom));
+    padding-inline:var(--page-pad-inline);
+    position:relative;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+  }
+  body::before{
+    content:'';
+    position:fixed;
+    inset:0;
+    background-image:radial-gradient(circle at center, rgba(247,243,235,0.025) 1px, transparent 1px);
+    background-size:28px 28px;
+    pointer-events:none;
+    opacity:0.35;
+  }
+  .page{
+    width:100%;
+    max-width:min(460px, 100%);
+    position:relative;
+    z-index:1;
+  }
+  .font-display{font-family:'Cormorant Garamond',serif;}
+  .eyebrow{
+    text-align:center;
+    font-size:clamp(9px, 2.6vw, 11px);
+    letter-spacing:clamp(2px, 1.2vw, 3.5px);
+    text-transform:uppercase;
+    color:var(--gold-soft);
+    font-weight:500;
+    margin-bottom:12px;
+    padding:0 4px;
+  }
+  .avatar-wrap{
+    width:clamp(112px, 32vw, 132px);
+    height:clamp(112px, 32vw, 132px);
+    margin:0 auto;
+    position:relative;
+  }
+  .avatar-ring{position:absolute;inset:-6px;border-radius:50%;border:1px solid var(--gold);opacity:0.5;}
+  .avatar-ring2{
+    position:absolute;inset:-14px;border-radius:50%;border:1px solid var(--gold);opacity:0.16;
+    animation:breathe 5s ease-in-out infinite;
+  }
+  @keyframes breathe{
+    0%,100%{transform:scale(1);opacity:0.16;}
+    50%{transform:scale(1.03);opacity:0.28;}
+  }
+  .avatar-img{
+    width:100%;height:100%;border-radius:50%;object-fit:cover;display:block;
+    box-shadow:0 10px 40px rgba(0,0,0,0.45);
+    background:linear-gradient(145deg,#1a241e,#0f1712);
+  }
+  .name{
+    font-size:clamp(40px, 11vw, 52px);
+    line-height:1.05;
+    font-weight:500;
+    text-align:center;
+    letter-spacing:0.5px;
+    color:var(--ivory);
+    margin-top:18px;
+    padding:0 8px;
+  }
+  .tagline{
+    text-align:center;
+    color:var(--ivory-dim);
+    font-size:clamp(11px, 3.2vw, 14px);
+    letter-spacing:clamp(1.2px, 0.6vw, 2px);
+    text-transform:uppercase;
+    margin-top:8px;
+    font-weight:400;
+    padding:0 12px;
+  }
+  .wave-wrap{
+    width:min(280px, 78%);
+    margin:16px auto 4px;
+    height:clamp(28px, 8vw, 34px);
+  }
+  .wave-path{fill:none;stroke:var(--gold);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;}
+  .badges{display:flex;flex-direction:column;gap:10px;align-items:center;margin-top:18px;padding:0 8px;}
+  .badge{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    font-size:clamp(12.5px, 3.4vw, 13.5px);
+    color:var(--ivory-dim);
+    letter-spacing:0.2px;
+    text-align:center;
+    line-height:1.45;
+    max-width:100%;
+  }
+  .badge span{word-break:break-word;}
+  .badge b{color:var(--ivory);font-weight:500;}
+  .badge svg{width:15px;height:15px;stroke:var(--sage);flex-shrink:0;}
+  .bio{
+    text-align:center;
+    color:var(--ivory-dim);
+    font-size:clamp(15px, 4vw, 16px);
+    line-height:1.8;
+    font-weight:300;
+    margin-top:20px;
+    max-width:340px;
+    margin-left:auto;
+    margin-right:auto;
+    padding:0 6px;
+    text-wrap:pretty;
+  }
+  .pillars{
+    display:flex;
+    justify-content:center;
+    gap:8px;
+    flex-wrap:wrap;
+    margin-top:22px;
+    padding:0 4px;
+  }
+  .pillar{
+    font-size:clamp(10px, 2.8vw, 11px);
+    letter-spacing:clamp(1.2px, 0.5vw, 1.8px);
+    text-transform:uppercase;
+    color:var(--sage);
+    padding:8px 14px;
+    border:1px solid var(--line);
+    border-radius:999px;
+    background:rgba(247,243,235,0.02);
+    white-space:nowrap;
+  }
+  .divider{width:56px;height:1px;background:var(--line);margin:clamp(28px, 7vw, 34px) auto;}
+  .links{display:flex;flex-direction:column;gap:12px;width:100%;}
+  .link-card{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    min-height:64px;
+    padding:16px 18px;
+    border-radius:16px;
+    border:1px solid var(--line);
+    background:linear-gradient(180deg,rgba(247,243,235,0.03),rgba(247,243,235,0.01));
+    text-decoration:none;
+    color:var(--ivory);
+    transition:transform .25s ease,border-color .25s ease,background .25s ease,box-shadow .25s ease;
+    cursor:pointer;
+    -webkit-user-select:none;
+    user-select:none;
+  }
+  @media (hover:hover){
+    .link-card:hover{
+      transform:translateY(-2px);
+      border-color:rgba(196,162,101,0.42);
+      background:linear-gradient(180deg,rgba(247,243,235,0.05),rgba(247,243,235,0.02));
+      box-shadow:0 8px 24px rgba(0,0,0,0.18);
+    }
+    .link-card.primary:hover{border-color:var(--gold);}
+    .footer-cta:hover{border-color:var(--gold);color:var(--ivory);transform:translateY(-2px);}
+  }
+  .link-card:active{
+    transform:scale(0.985);
+    border-color:rgba(196,162,101,0.55);
+  }
+  .link-card.primary{
+    border-color:rgba(196,162,101,0.50);
+    background:linear-gradient(135deg,rgba(196,162,101,0.14),rgba(196,162,101,0.03));
+  }
+  .link-icon{
+    width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;
+    background:rgba(247,243,235,0.05);flex-shrink:0;
+  }
+  .link-card.primary .link-icon{background:rgba(196,162,101,0.16);}
+  .link-icon svg{width:19px;height:19px;stroke:var(--ivory);}
+  .link-card.primary .link-icon svg{stroke:var(--gold-soft);}
+  .link-text{flex:1;min-width:0;}
+  .link-title{
+    font-size:clamp(14px, 3.8vw, 15px);
+    font-weight:500;
+    letter-spacing:0.3px;
+    line-height:1.35;
+  }
+  .link-sub{
+    font-size:clamp(11px, 3vw, 12px);
+    color:var(--ivory-dim);
+    margin-top:3px;
+    font-weight:300;
+    line-height:1.4;
+  }
+  .link-arrow{width:16px;height:16px;stroke:var(--ivory-dim);flex-shrink:0;}
+  .quote{text-align:center;padding:6px 12px 0;}
+  .quote p{
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    font-size:clamp(20px, 5.5vw, 24px);
+    line-height:1.6;
+    color:var(--ivory);
+    font-weight:500;
+    text-wrap:pretty;
+  }
+  .quote span{
+    display:block;margin-top:12px;font-family:'Jost',sans-serif;font-style:normal;
+    font-size:clamp(10px, 2.8vw, 11px);letter-spacing:clamp(1.8px, 0.8vw, 2.5px);
+    text-transform:uppercase;color:var(--gold-soft);font-weight:500;
+  }
+  .footer{margin-top:clamp(36px, 9vw, 48px);display:flex;flex-direction:column;align-items:center;gap:16px;}
+  .footer-cta{
+    display:inline-flex;align-items:center;justify-content:center;gap:10px;
+    min-height:48px;padding:12px 24px;border-radius:999px;
+    border:1px solid var(--line);text-decoration:none;color:var(--ivory-dim);
+    font-size:clamp(11px, 3vw, 12px);letter-spacing:1.5px;text-transform:uppercase;
+    transition:border-color .2s ease,color .2s ease,transform .2s ease;
+  }
+  .footer-cta:active{transform:scale(0.97);border-color:var(--gold);color:var(--ivory);}
+  .footer-cta svg{width:15px;height:15px;stroke:currentColor;flex-shrink:0;}
+  .copyright{
+    font-size:11px;color:rgba(247,243,235,0.32);letter-spacing:1px;font-weight:300;
+    padding-bottom:4px;
+  }
+  .link-card:focus-visible,
+  .footer-cta:focus-visible{
+    outline:2px solid var(--gold-soft);
+    outline-offset:3px;
+  }
+  .fade-el{opacity:0;}
+  @media (max-width:360px){
+    :root{--page-pad-inline:max(16px, env(safe-area-inset-left, 0px), env(safe-area-inset-right, 0px));}
+    .link-card{padding:14px;gap:12px;min-height:60px;}
+    .link-icon{width:40px;height:40px;border-radius:10px;}
+    .pillars{gap:6px;}
+    .pillar{padding:7px 11px;}
+  }
+  @media (min-width:481px){
+    body{
+      padding-block:calc(56px + var(--page-pad-y)) calc(72px + var(--page-pad-bottom));
+    }
+    .page{max-width:440px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .fade-el{opacity:1!important;transform:none!important;}
+    .avatar-ring2{animation:none;}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="eyebrow fade-el" id="eyebrow">Mind · Body · Breath</div>
+
+  <div class="avatar-wrap fade-el" id="avatar">
+    <div class="avatar-ring2"></div>
+    <div class="avatar-ring"></div>
+    <img class="avatar-img" src="img/noraharb.jpeg" alt="Nora" width="132" height="132" decoding="async" loading="eager">
+  </div>
+
+  <div class="name font-display fade-el" id="name">Nora</div>
+  <div class="tagline fade-el" id="tagline">Vinyasa Yoga Teacher</div>
+
+  <div class="wave-wrap fade-el" id="wave">
+    <svg viewBox="0 0 280 34" width="100%" height="100%">
+      <path id="wavePath" class="wave-path" d="M0,17 L280,17"/>
+    </svg>
+  </div>
+
+  <div class="badges fade-el" id="badges">
+    <div class="badge">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M12 3c-2 3-6 4-6 9a6 6 0 0012 0c0-5-4-6-6-9z"/></svg>
+      <span><b>Vinyasa Yoga Teacher</b> · RYT 300</span>
+    </div>
+    <div class="badge">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M12 2l3 5-3 5-3-5 3-5z"/><path d="M4 14h16l-2 8H6l-2-8z"/></svg>
+      <span>Medical Device Engineer</span>
+    </div>
+  </div>
+
+  <p class="bio fade-el" id="bio">Yoga is a path of healing, strength, and intuition — where the precision of engineering meets the grace of movement, and balance is found in every breath.</p>
+
+  <div class="pillars fade-el" id="pillars">
+    <span class="pillar">Breath</span>
+    <span class="pillar">Flow</span>
+    <span class="pillar">Stillness</span>
+  </div>
+
+  <div class="divider fade-el" id="div1"></div>
+
+  <div class="links">
+    <a class="link-card primary fade-el" id="link1" href="https://chat.whatsapp.com/Hjp1t1T7gLN2Tsj217ojOn" target="_blank" rel="noopener noreferrer">
+      <div class="link-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M20.5 3.5A10 10 0 003.8 16.4L2 22l5.8-1.7A10 10 0 1020.5 3.5z"/><path d="M8.5 9.3c.4 3 3 5.6 6 6 1 .1 1.8-.6 1.6-1.6l-.2-.9a1 1 0 00-.7-.7l-1.6-.5a1 1 0 00-1 .3l-.4.4a5.6 5.6 0 01-3-3l.4-.4a1 1 0 00.3-1l-.5-1.6a1 1 0 00-.7-.7l-.9-.2c-1-.2-1.7.6-1.6 1.6z"/></svg>
+      </div>
+      <div class="link-text">
+        <div class="link-title">Book Your First Session</div>
+        <div class="link-sub">Connect directly on WhatsApp</div>
+      </div>
+      <svg class="link-arrow" viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M15 6l6 6-6 6"/></svg>
+    </a>
+
+    <a class="link-card fade-el" id="link2" href="https://chat.whatsapp.com/Hjp1t1T7gLN2Tsj217ojOn" target="_blank" rel="noopener noreferrer">
+      <div class="link-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+      </div>
+      <div class="link-text">
+        <div class="link-title">Join a Group Class</div>
+        <div class="link-sub">Weekly vinyasa sessions</div>
+      </div>
+      <svg class="link-arrow" viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M15 6l6 6-6 6"/></svg>
+    </a>
+  </div>
+
+  <div class="divider fade-el" id="div2"></div>
+
+  <div class="quote fade-el" id="quote">
+    <p>"From physical strength to inner intuition — every breath is a step toward balance."</p>
+    <span>Nora · Vinyasa Yoga</span>
+  </div>
+
+  <div class="footer fade-el" id="footer">
+    <a class="footer-cta" href="https://chat.whatsapp.com/Hjp1t1T7gLN2Tsj217ojOn" target="_blank" rel="noopener noreferrer">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M20.5 3.5A10 10 0 003.8 16.4L2 22l5.8-1.7A10 10 0 1020.5 3.5z"/></svg>
+      Start Your Practice
+    </a>
+    <div class="copyright">© Nora · 2026</div>
+  </div>
+
+</div>
+
+<script>
+  const ecg = "M0,17 L40,17 L52,17 L58,4 L66,30 L74,10 L82,17 L100,17 L280,17";
+  const breathA = "M0,17 C35,2 70,32 105,17 C140,2 175,32 210,17 C245,2 280,17 280,17";
+  const breathB = "M0,17 C35,32 70,2 105,17 C140,32 175,2 210,17 C245,32 280,17 280,17";
+
+  const path = document.getElementById('wavePath');
+  gsap.set(path, { attr: { d: "M0,17 L280,17" } });
+
+  gsap.timeline({ delay: 0.9 })
+    .to(path, { duration: 0.9, attr: { d: ecg }, ease: "power2.inOut" })
+    .to(path, { duration: 1.1, attr: { d: breathA }, ease: "power2.inOut" }, "+=0.15")
+    .to(path, { duration: 3.2, attr: { d: breathB }, ease: "sine.inOut", repeat: -1, yoyo: true });
+
+  gsap.timeline({ defaults: { ease: "power2.out" } })
+    .to("#avatar", { opacity: 1, y: 0, duration: 0.7 }, 0)
+    .fromTo("#avatar", { y: 14 }, { y: 0, duration: 0.7 }, 0)
+    .to("#eyebrow", { opacity: 1, duration: 0.5 }, 0.08)
+    .to("#name", { opacity: 1, duration: 0.6 }, 0.15)
+    .fromTo("#name", { y: 10 }, { y: 0, duration: 0.6 }, 0.15)
+    .to("#tagline", { opacity: 1, duration: 0.6 }, 0.25)
+    .to("#wave", { opacity: 1, duration: 0.6 }, 0.35)
+    .to("#badges", { opacity: 1, duration: 0.6 }, 0.45)
+    .fromTo("#badges", { y: 10 }, { y: 0, duration: 0.6 }, 0.45)
+    .to("#bio", { opacity: 1, duration: 0.6 }, 0.55)
+    .to("#pillars", { opacity: 1, duration: 0.6 }, 0.62)
+    .to("#div1", { opacity: 1, duration: 0.5 }, 0.7)
+    .to("#link1", { opacity: 1, duration: 0.6 }, 0.78)
+    .fromTo("#link1", { y: 14 }, { y: 0, duration: 0.6 }, 0.78)
+    .to("#link2", { opacity: 1, duration: 0.6 }, 0.88)
+    .fromTo("#link2", { y: 14 }, { y: 0, duration: 0.6 }, 0.88)
+    .to("#div2", { opacity: 1, duration: 0.5 }, 1.0)
+    .to("#quote", { opacity: 1, duration: 0.6 }, 1.08)
+    .to("#footer", { opacity: 1, duration: 0.6 }, 1.2);
+</script>
+</body>
+</html>
