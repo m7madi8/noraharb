@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#FFFFFF">
+<title>Rooted &amp; Restorative — Nora</title>
+<meta name="description" content="On-demand restorative yoga course — 6 recorded lessons, 30–50 minutes each. Gentle movement for release, mobility, and calm.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/course.css">
+</head>
+<body>
+
+<header class="nav">
+  <a class="nav-brand" href="../index.html" aria-label="Nora — home">
+    <img src="../img/logo.png" alt="Nora" width="160" height="48" decoding="async">
+  </a>
+  <a class="nav-back" href="../index.html#courses">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+    All courses
+  </a>
+</header>
+
+<main>
+  <section class="course-hero">
+    <div class="course-hero-inner">
+      <div class="course-intro">
+        <p class="course-kicker">On-demand · Beginner friendly</p>
+        <h1 class="course-title font-display">Rooted &amp; Restorative</h1>
+        <p class="course-lead">A gentle video course for releasing tension and rebuilding mobility — slow, therapeutic sessions designed for beginners and anyone returning to practice.</p>
+        <div class="course-meta">
+          <span>6 lessons</span>
+          <span>30–50 min each</span>
+          <span>Lifetime access</span>
+        </div>
+      </div>
+      <div class="course-cover">
+        <img src="../img/2.jpg" alt="Rooted and Restorative course" width="800" height="500" loading="eager">
+      </div>
+    </div>
+  </section>
+
+  <div class="course-body">
+    <section class="course-section">
+      <p class="course-section-label">About this course</p>
+      <h2 class="course-section-title font-display">Slow down. Release. Restore.</h2>
+      <p class="course-section-text">Each lesson moves at an unhurried pace — grounding breathwork, supported postures, and therapeutic sequences that respect where your body is today. Every session runs at least 30 minutes and stands on its own.</p>
+    </section>
+
+    <section class="course-section" id="curriculum">
+      <p class="course-section-label">Curriculum</p>
+      <h2 class="course-section-title font-display">6 recorded lessons</h2>
+      <ol class="curriculum">
+        <li class="lesson">
+          <span class="lesson-num">Lesson 01</span>
+          <div>
+            <h3 class="lesson-title">Grounding &amp; Breath</h3>
+            <p class="lesson-desc">Diaphragmatic breathing, body scan, and simple seated movements to arrive on the mat with ease.</p>
+          </div>
+          <span class="lesson-meta">30 min</span>
+        </li>
+        <li class="lesson">
+          <span class="lesson-num">Lesson 02</span>
+          <div>
+            <h3 class="lesson-title">Gentle Mobility</h3>
+            <p class="lesson-desc">Neck, shoulders, hips, and spine — slow circles and stretches that restore natural range of motion.</p>
+          </div>
+          <span class="lesson-meta">35 min</span>
+        </li>
+        <li class="lesson">
+          <span class="lesson-num">Lesson 03</span>
+          <div>
+            <h3 class="lesson-title">Release Tension</h3>
+            <p class="lesson-desc">Forward folds, gentle twists, and hip openers to let go of stored tightness in the lower back and hips.</p>
+          </div>
+          <span class="lesson-meta">40 min</span>
+        </li>
+        <li class="lesson">
+          <span class="lesson-num">Lesson 04</span>
+          <div>
+            <h3 class="lesson-title">Supported Restorative</h3>
+            <p class="lesson-desc">Bolster and block-supported poses held with breath — deep rest for the nervous system.</p>
+          </div>
+          <span class="lesson-meta">45 min</span>
+        </li>
+        <li class="lesson">
+          <span class="lesson-num">Lesson 05</span>
+          <div>
+            <h3 class="lesson-title">Slow Flow Building</h3>
+            <p class="lesson-desc">Linking gentle movements with breath — a bridge between stillness and flowing practice.</p>
+          </div>
+          <span class="lesson-meta">40 min</span>
+        </li>
+        <li class="lesson">
+          <span class="lesson-num">Lesson 06</span>
+          <div>
+            <h3 class="lesson-title">Full Restorative Session</h3>
+            <p class="lesson-desc">The complete course practice — grounding, release, supported rest, and a long, quiet savasana.</p>
+          </div>
+          <span class="lesson-meta">50 min</span>
+        </li>
+      </ol>
+    </section>
+
+    <section class="course-section" id="enroll">
+      <div class="enroll">
+        <h2 class="enroll-title font-display">Enroll in this course</h2>
+        <p class="enroll-desc">Get lifetime access to all 6 recorded lessons. Move gently, on your own time.</p>
+        <form class="enroll-form" id="enroll-form" novalidate>
+          <input class="enroll-field" type="text" name="name" placeholder="Your name" required autocomplete="name">
+          <input class="enroll-field" type="email" name="email" placeholder="Your email" required autocomplete="email">
+          <button class="enroll-btn" type="submit">Get access</button>
+        </form>
+        <p class="enroll-note">Secure enrollment. Access details will be sent to your email after registration.</p>
+        <p class="enroll-success" id="enroll-success" role="status">Thank you — we'll send your course access details shortly.</p>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="site-foot">
+  <p class="site-foot-copy">&copy; Nora · 2026</p>
+</footer>
+
+<script>
+document.getElementById('enroll-form').addEventListener('submit', function(e){
+  e.preventDefault();
+  this.style.display = 'none';
+  document.querySelector('.enroll-note').style.display = 'none';
+  document.getElementById('enroll-success').style.display = 'block';
+});
+</script>
+</body>
+</html>
