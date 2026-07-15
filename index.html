@@ -6,8 +6,8 @@
 <meta name="theme-color" content="#FFFFFF">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<title>Nora | Vinyasa Yoga Teacher</title>
-<meta name="description" content="Premium vinyasa yoga with Nora — breath, balance, and inner stillness. RYT 300 certified. Studio, beach and private sessions.">
+<title>Nora — Vinyasa Yoga Teacher</title>
+<meta name="description" content="Nora — RYT 300 vinyasa yoga teacher. Intentional movement, precise alignment, and quiet presence. Studio, beach, and private sessions.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -61,9 +61,15 @@
   .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
   .ambient{
     position:fixed;inset:0;pointer-events:none;z-index:0;
-    background:var(--stone);
+    background:
+      radial-gradient(ellipse 70% 50% at 80% 10%, rgba(62,207,142,0.04), transparent 55%),
+      radial-gradient(ellipse 55% 45% at 10% 90%, rgba(22,53,42,0.03), transparent 50%),
+      var(--stone);
   }
-  .ambient::after{display:none;}
+  .ambient::after{
+    content:'';position:absolute;inset:0;opacity:0.028;
+    background-image:var(--grain);background-size:220px 220px;
+  }
   main{position:relative;z-index:1;}
 
   /* ── Navigation ── */
@@ -130,95 +136,64 @@
   .action svg{width:15px;height:15px;stroke:currentColor;flex-shrink:0;}
 
   /* ══════════════════════════════════════
-     01 · THRESHOLD — immersive opening
+     01 · THRESHOLD — full-bleed brand opening
      ══════════════════════════════════════ */
   .threshold{
     position:relative;min-height:100dvh;
     display:flex;flex-direction:column;justify-content:flex-end;
-    padding:calc(80px + var(--pad-top)) var(--pad) clamp(48px,8vw,80px);
+    padding:calc(80px + var(--pad-top)) var(--pad) clamp(52px,9vw,88px);
     overflow:hidden;
   }
-  .threshold-field{display:none;}
-  .threshold-blob,.threshold-ring{display:none;}
-
-  .threshold-grid{
-    position:relative;z-index:2;
-    display:grid;grid-template-columns:1fr;gap:clamp(40px,7vw,0);
-    align-items:end;
+  .threshold-backdrop{
+    position:absolute;inset:0;z-index:0;
   }
-  .threshold-words{margin-bottom:clamp(20px,4vw,0);}
+  .threshold-backdrop img{
+    width:100%;height:100%;object-fit:cover;object-position:center 20%;
+    transform:scale(1.02);
+    animation:heroDrift 22s var(--ease-breath) infinite alternate;
+  }
+  .threshold-backdrop::after{
+    content:'';position:absolute;inset:0;
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.55) 42%, rgba(255,255,255,0.94) 100%),
+      linear-gradient(90deg, rgba(255,255,255,0.88) 0%, rgba(255,255,255,0.35) 55%, transparent 100%);
+  }
+  @keyframes heroDrift{0%{transform:scale(1.02);}100%{transform:scale(1.06);}}
+
+  .threshold-content{
+    position:relative;z-index:2;
+    max-width:min(640px, 100%);
+  }
   .threshold-kicker{
-    display:flex;align-items:center;gap:16px;margin-bottom:clamp(24px,5vw,36px);
+    display:flex;align-items:center;gap:14px;margin-bottom:clamp(18px,4vw,28px);
     font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:var(--moss-deep);
   }
-  .threshold-kicker::before{content:'';width:40px;height:1px;background:var(--sand);opacity:0.7;}
+  .threshold-kicker::before{content:'';width:36px;height:1px;background:var(--sand);opacity:0.7;}
   .threshold-title{
-    font-size:clamp(52px,13vw,118px);line-height:0.92;font-weight:400;
-    letter-spacing:-0.03em;margin:0;color:var(--ink);
+    font-size:clamp(72px,18vw,148px);line-height:0.88;font-weight:500;
+    letter-spacing:-0.02em;margin:0;color:var(--ink);
   }
-  .threshold-title em{
-    display:block;font-style:italic;font-weight:500;
-    margin-left:clamp(0px,8vw,120px);
-    color:var(--moss-deep);
+  .threshold-role{
+    margin:clamp(14px,3vw,20px) 0 0;
+    font-size:clamp(11px,2.4vw,12px);letter-spacing:0.24em;text-transform:uppercase;
+    color:var(--whisper-dim);
+  }
+  .threshold-headline{
+    font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;
+    font-size:clamp(22px,4.8vw,34px);line-height:1.2;
+    margin:clamp(20px,4vw,32px) 0 0;color:var(--moss-deep);
+    max-width:480px;
   }
   .threshold-lead{
-    max-width:380px;margin:clamp(28px,5vw,40px) 0 0;
-    font-size:clamp(15px,3.2vw,17px);line-height:1.85;color:var(--whisper-dim);
+    max-width:420px;margin:clamp(18px,3.5vw,26px) 0 0;
+    font-size:clamp(15px,3.2vw,17px);line-height:1.8;color:var(--whisper-dim);
   }
-  .threshold-meta{
-    display:flex;flex-wrap:wrap;gap:clamp(16px,3vw,28px);
-    margin:clamp(32px,5vw,44px) 0;
-    font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--moss-deep);
-  }
-  .threshold-meta span{display:flex;align-items:center;gap:8px;}
-  .threshold-meta span::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--moss);opacity:0.6;}
-  .threshold-actions{display:flex;flex-wrap:wrap;gap:clamp(20px,4vw,32px);align-items:center;}
-
-  .threshold-portrait{
-    position:relative;width:min(100%,340px);margin:0 auto;
-    justify-self:center;
-  }
-  .threshold-portrait-inner{
-    position:relative;
-    clip-path:url(#organic-portrait);
-    aspect-ratio:3/4;
-    overflow:hidden;
-    box-shadow:0 40px 80px rgba(22,53,42,0.08);
-  }
-  .threshold-portrait-inner img{
-    width:100%;height:100%;object-fit:cover;
-    background:linear-gradient(145deg,#F0EEEA,#E8E6E1);
-  }
-  .threshold-portrait-float{
-    position:absolute;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;
-    color:var(--whisper-dim);writing-mode:vertical-rl;
-    right:-28px;top:20%;opacity:0.7;
-  }
-  .threshold-cred{
-    position:absolute;bottom:clamp(16px,3vw,24px);left:clamp(-12px,2vw,0);
-    padding:10px 16px;background:rgba(255,255,255,0.88);
-    backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
-    font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;
-    color:var(--ink);
-    clip-path:polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
-    border:1px solid rgba(22,53,42,0.1);
-    display:flex;align-items:center;gap:8px;
-  }
-  .threshold-cred svg{width:12px;height:12px;stroke:var(--sand);}
-  .threshold-identity{
-    position:absolute;top:clamp(12px,2vw,20px);right:clamp(-8px,1vw,4px);
-    text-align:right;
-  }
-  .threshold-identity-name{
-    font-family:'Cormorant Garamond',serif;font-size:clamp(28px,5vw,36px);
-    font-weight:500;line-height:1;color:var(--ink);
-  }
-  .threshold-identity-role{
-    font-size:9px;letter-spacing:0.22em;text-transform:uppercase;
-    color:var(--whisper-dim);margin-top:6px;
+  .threshold-actions{
+    display:flex;flex-wrap:wrap;gap:clamp(20px,4vw,32px);
+    align-items:center;margin-top:clamp(32px,5vw,44px);
   }
   .threshold-scroll{
-    position:absolute;bottom:clamp(24px,4vw,40px);right:var(--pad);
+    position:absolute;bottom:clamp(24px,4vw,40px);right:var(--pad);z-index:2;
     display:flex;align-items:center;gap:12px;
     font-size:9px;letter-spacing:0.24em;text-transform:uppercase;color:var(--whisper-dim);
   }
@@ -230,10 +205,12 @@
 
   @media (min-width:960px){
     .nav-menu{display:flex;}
-    .threshold-grid{grid-template-columns:1.15fr 0.85fr;gap:clamp(40px,6vw,80px);align-items:center;}
-    .threshold{justify-content:center;padding-bottom:clamp(60px,8vw,100px);}
-    .threshold-portrait{width:100%;max-width:400px;justify-self:end;margin:0;}
-    .threshold-lead{margin-left:clamp(0px,4vw,40px);}
+    .threshold-content{max-width:min(720px, 58vw);}
+    .threshold-backdrop::after{
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.45) 50%, rgba(255,255,255,0.92) 100%),
+        linear-gradient(90deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.5) 48%, transparent 100%);
+    }
   }
 
   /* ══════════════════════════════════════
@@ -439,43 +416,41 @@
 
   .isles-field{
     position:relative;max-width:var(--container);margin:0 auto;
-    padding-inline:var(--pad);min-height:clamp(900px,120vh,1100px);
+    padding-inline:var(--pad);
+    display:flex;flex-direction:column;gap:clamp(56px,9vw,88px);
   }
   .isle{
-    position:absolute;width:clamp(280px,42vw,380px);
-    padding:clamp(28px,4vw,36px);
-    background:#FFFFFF;
-    border:1px solid rgba(22,53,42,0.08);
-    box-shadow:0 20px 50px rgba(22,53,42,0.05);
-    transition:transform .6s var(--ease-luxury), box-shadow .6s;
+    position:relative;width:100%;
+    padding-bottom:clamp(40px,7vw,56px);
+    border-bottom:1px solid var(--line-dark);
   }
-  .isle:hover{transform:translateY(-6px)!important;box-shadow:0 28px 60px rgba(22,53,42,0.08);}
-  .isle--sea{top:0;left:0;clip-path:polygon(0 12px, 12px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);}
-  .isle--studio{top:clamp(180px,28vh,280px);right:0;clip-path:polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 20px 100%, 0 calc(100% - 20px));}
-  .isle--home{bottom:0;left:clamp(20px,15vw,120px);clip-path:polygon(20px 0, 100% 0, 100% 100%, 0 100%, 0 20px);}
+  .isle:last-child{border-bottom:none;padding-bottom:0;}
+  .isle--sea{padding-left:0;}
+  .isle--studio{padding-left:clamp(0px,12vw,140px);}
+  .isle--home{padding-left:clamp(0px,6vw,72px);}
 
   .isle-icon{
-    width:48px;height:48px;display:flex;align-items:center;justify-content:center;
-    margin-bottom:clamp(20px,3vw,24px);
-    background:rgba(22,53,42,0.04);
-    clip-path:polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+    width:40px;height:40px;display:flex;align-items:center;justify-content:center;
+    margin-bottom:4px;
   }
   .isle-icon svg{width:22px;height:22px;stroke:var(--moss-deep);}
-  .isle--studio .isle-icon{background:rgba(22,53,42,0.04);}
   .isle--studio .isle-icon svg{stroke:#3A8FB0;}
-  .isle--home .isle-icon{background:rgba(22,53,42,0.04);}
   .isle--home .isle-icon svg{stroke:var(--clay);}
 
   .isle-title{
     font-family:'Cormorant Garamond',serif;
-    font-size:clamp(24px,4vw,30px);font-weight:600;line-height:1.15;margin:0 0 14px;
+    font-size:clamp(28px,5vw,40px);font-weight:500;line-height:1.1;margin:0 0 12px;
   }
-  .isle-desc{font-size:14.5px;line-height:1.8;color:var(--ink-soft);margin:0 0 20px;}
-  .isle-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:clamp(20px,3vw,24px);}
-  .isle-tag{
-    font-size:9px;letter-spacing:0.16em;text-transform:uppercase;
-    padding:6px 12px;color:var(--ink-soft);
-    border:1px solid var(--line-dark);background:rgba(22,53,42,0.02);
+  .isle-desc{
+    font-size:clamp(15px,3vw,16px);line-height:1.85;color:var(--ink-soft);
+    margin:0;max-width:520px;
+  }
+  .isle-foot{
+    display:flex;flex-wrap:wrap;align-items:center;gap:clamp(20px,4vw,32px);
+    margin-top:clamp(20px,3vw,28px);
+  }
+  .isle-note{
+    font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--whisper-dim);
   }
   .isle-link{
     display:inline-flex;align-items:center;gap:8px;
@@ -484,11 +459,6 @@
   }
   .isle-link:hover{gap:14px;}
   .isle-link svg{width:13px;height:13px;stroke:var(--moss-deep);}
-
-  @media (max-width:720px){
-    .isles-field{min-height:auto;display:flex;flex-direction:column;gap:24px;padding-bottom:20px;}
-    .isle{position:relative;width:100%;top:auto!important;left:auto!important;right:auto!important;bottom:auto!important;}
-  }
 
   /* ══════════════════════════════════════
      05 · WHISPER — quote as landscape
@@ -539,11 +509,11 @@
     max-width:420px;margin:0 auto clamp(36px,6vw,48px);
   }
   .arrival-form{
-    position:relative;padding:clamp(48px,8vw,72px) clamp(32px,6vw,56px);
-    background:#FFFFFF;
-    border:1px solid rgba(22,53,42,0.1);
-    clip-path:polygon(0 24px, 24px 0, calc(100% - 24px) 0, 100% 24px, 100% calc(100% - 24px), calc(100% - 24px) 100%, 24px 100%, 0 calc(100% - 24px));
-    box-shadow:0 20px 50px rgba(22,53,42,0.05);
+    position:relative;padding:clamp(40px,7vw,56px) 0 0;
+    background:transparent;
+    border:none;
+    clip-path:none;
+    box-shadow:none;
   }
   .arrival-glow{display:none;}
 
@@ -568,7 +538,7 @@
 
   @media (prefers-reduced-motion:reduce){
     .reveal,.reveal-scale{opacity:1!important;transform:none!important;}
-    .threshold-scroll-line{animation:none!important;}
+    .threshold-scroll-line,.threshold-backdrop img{animation:none!important;}
     .current:hover .current-image img{transform:none;}
   }
   @media (min-width:800px){.nav-menu{display:flex;}}
@@ -609,56 +579,30 @@
 
   <!-- 01 · THRESHOLD -->
   <section class="threshold" id="top" aria-label="Welcome">
-    <div class="threshold-field" aria-hidden="true">
-      <div class="threshold-blob threshold-blob--a"></div>
-      <div class="threshold-blob threshold-blob--b"></div>
-      <div class="threshold-ring"></div>
-      <div class="threshold-ring threshold-ring--2"></div>
+    <div class="threshold-backdrop" aria-hidden="true">
+      <img src="img/noraharb.jpeg" alt="" width="1600" height="900" decoding="async" loading="eager">
     </div>
 
-    <div class="threshold-grid">
-      <div class="threshold-words">
-        <p class="threshold-kicker reveal" data-reveal>Mind · Body · Breath</p>
-        <h1 class="threshold-title font-display">
-          <span class="reveal" data-reveal>Find stillness</span>
-          <em class="reveal" data-reveal>in every breath</em>
-        </h1>
-        <p class="threshold-lead reveal" data-reveal>Premium vinyasa guided with intention — where breath leads movement, the body finds balance, and the mind settles into quiet presence.</p>
-        <div class="threshold-meta reveal" data-reveal>
-          <span>Studio</span>
-          <span>Beach</span>
-          <span>Private</span>
-        </div>
-        <div class="threshold-actions reveal" data-reveal>
-          <a class="action action--solid" href="https://chat.whatsapp.com/Hjp1t1T7gLN2Tsj217ojOn" target="_blank" rel="noopener noreferrer">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M20.5 3.5A10 10 0 003.8 16.4L2 22l5.8-1.7A10 10 0 1020.5 3.5z"/></svg>
-            Begin your practice
-          </a>
-          <a class="action action--ghost" href="#courses">
-            Explore classes
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
-        </div>
+    <div class="threshold-content">
+      <p class="threshold-kicker reveal" data-reveal>RYT 300 · Vinyasa</p>
+      <h1 class="threshold-title font-display reveal" data-reveal>Nora</h1>
+      <p class="threshold-role reveal" data-reveal>Vinyasa Yoga Teacher</p>
+      <p class="threshold-headline reveal" data-reveal>Stillness shaped by breath.</p>
+      <p class="threshold-lead reveal" data-reveal>Intentional vinyasa for alignment, mobility, and a quieter mind — in studio, by the sea, or in your own space.</p>
+      <div class="threshold-actions reveal" data-reveal>
+        <a class="action action--solid" href="https://chat.whatsapp.com/Hjp1t1T7gLN2Tsj217ojOn" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M20.5 3.5A10 10 0 003.8 16.4L2 22l5.8-1.7A10 10 0 1020.5 3.5z"/></svg>
+          Book a session
+        </a>
+        <a class="action action--ghost" href="#courses">
+          View practices
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
       </div>
-
-      <figure class="threshold-portrait reveal-scale" data-reveal>
-        <div class="threshold-portrait-inner">
-          <img src="img/noraharb.jpeg" alt="Nora — Vinyasa yoga teacher" width="400" height="533" decoding="async" loading="eager">
-        </div>
-        <span class="threshold-portrait-float" aria-hidden="true">Presence</span>
-        <div class="threshold-cred">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M12 3c-2 3-6 4-6 9a6 6 0 0012 0c0-5-4-6-6-9z"/></svg>
-          RYT 300
-        </div>
-        <figcaption class="threshold-identity">
-          <div class="threshold-identity-name font-display">Nora</div>
-          <div class="threshold-identity-role">Vinyasa Yoga Teacher</div>
-        </figcaption>
-      </figure>
     </div>
 
     <div class="threshold-scroll reveal" data-reveal aria-hidden="true">
-      <span>Discover</span>
+      <span>Scroll</span>
       <div class="threshold-scroll-line"></div>
     </div>
   </section>
@@ -679,24 +623,24 @@
           </div>
         </div>
         <article class="origin-story">
-          <p class="origin-label reveal" data-reveal>About Nora</p>
-          <h2 class="origin-headline font-display reveal" data-reveal id="origin-heading">An engineer's precision. A yogi's stillness.</h2>
-          <p class="origin-body reveal" data-reveal>My path to yoga started far from the mat — in the exacting world of medical device engineering, where every detail matters and nothing is left to chance. That same discipline now shapes how I teach: alignment that respects the body's structure, breath that paces every movement, and sequences built with intention rather than trend.</p>
-          <p class="origin-body reveal" data-reveal>RYT 300 certified, I've spent the past years guiding students of every level toward strength, mobility, and a quieter mind — on the mat, by the sea, or wherever stillness finds them.</p>
+          <p class="origin-label reveal" data-reveal>About</p>
+          <h2 class="origin-headline font-display reveal" data-reveal id="origin-heading">Engineering precision. Yoga presence.</h2>
+          <p class="origin-body reveal" data-reveal>My practice began far from the mat — in medical device engineering, where structure, detail, and care are non-negotiable. That discipline now defines how I teach: alignment that honors anatomy, breath that sets the pace, and sequences built with purpose.</p>
+          <p class="origin-body reveal" data-reveal>As an RYT 300 certified instructor, I guide students of every level toward strength, mobility, and mental clarity — in the studio, by the sea, or wherever practice finds you.</p>
           <div class="origin-proof reveal" data-reveal>
             <div class="origin-proof-item">
               <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M12 3c-2 3-6 4-6 9a6 6 0 0012 0c0-5-4-6-6-9z"/></svg>
-              <span><b>RYT 300</b> certified vinyasa instructor</span>
+              <span><b>RYT 300</b> — certified vinyasa instructor</span>
             </div>
             <div class="origin-proof-item">
               <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M12 2l3 5-3 5-3-5 3-5z"/><path d="M4 14h16l-2 8H6l-2-8z"/></svg>
-              <span><b>Background</b> in medical device engineering</span>
+              <span><b>Former engineer</b> — medical device background</span>
             </div>
           </div>
           <div class="origin-pillars reveal" data-reveal>
             <span class="origin-pillar">Breath</span>
-            <span class="origin-pillar">Flow</span>
-            <span class="origin-pillar">Stillness</span>
+            <span class="origin-pillar">Alignment</span>
+            <span class="origin-pillar">Presence</span>
           </div>
         </article>
       </div>
@@ -707,8 +651,8 @@
   <section class="currents" id="courses" aria-labelledby="currents-heading">
     <header class="currents-intro">
       <p class="currents-intro-label reveal" data-reveal>Practices</p>
-      <h2 class="currents-intro-title font-display reveal" data-reveal id="currents-heading">Choose your practice</h2>
-      <p class="currents-intro-sub reveal" data-reveal>Three ways to move, structured around how your body actually needs to breathe — from restorative to powerful.</p>
+      <h2 class="currents-intro-title font-display reveal" data-reveal id="currents-heading">Three ways to move</h2>
+      <p class="currents-intro-sub reveal" data-reveal>Each class is paced to how your body breathes — from restorative release to focused, dynamic flow.</p>
     </header>
 
     <article class="current">
@@ -719,11 +663,11 @@
           </div>
         </div>
         <div class="current-content reveal" data-reveal>
-          <p class="current-duration">60 min · dynamic sequence</p>
+          <p class="current-duration">60 min · dynamic flow</p>
           <h3 class="current-title font-display">Vinyasa Flow</h3>
-          <p class="current-desc">Where breath leads movement — a continuous,  dynamic sequence that builds heat, focus, and grace from the first pose to the last.</p>
+          <p class="current-desc">Breath-led movement in a continuous sequence — building heat, focus, and fluid strength from first pose to final rest.</p>
           <a class="current-link" href="https://chat.whatsapp.com/Hjp1t1T7gLN2Tsj217ojOn" target="_blank" rel="noopener noreferrer">
-            Reserve your spot
+            Reserve via WhatsApp
             <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
         </div>
@@ -742,11 +686,11 @@
           </div>
         </div>
         <div class="current-content reveal" data-reveal>
-          <p class="current-duration">50 min · gentle &amp; therapeutic</p>
+          <p class="current-duration">50 min · restorative</p>
           <h3 class="current-title font-display">Rooted &amp; Restorative</h3>
-          <p class="current-desc">Slow, therapeutic movement designed to release tension and rebuild mobility. Ideal for beginners and anyone returning after injury.</p>
+          <p class="current-desc">Slow, therapeutic movement to release tension and restore range. Ideal for beginners or anyone returning after time away.</p>
           <a class="current-link" href="https://chat.whatsapp.com/Hjp1t1T7gLN2Tsj217ojOn" target="_blank" rel="noopener noreferrer">
-            Reserve your spot
+            Reserve via WhatsApp
             <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
         </div>
@@ -765,11 +709,11 @@
           </div>
         </div>
         <div class="current-content reveal" data-reveal>
-          <p class="current-duration">75 min · strength &amp; precision</p>
+          <p class="current-duration">75 min · strength &amp; alignment</p>
           <h3 class="current-title font-display">Power Vinyasa</h3>
-          <p class="current-desc">Strength-driven sequences built on precise alignment and controlled breath — every posture engineered for structural integrity.</p>
+          <p class="current-desc">Strength-focused sequences with precise alignment and controlled breath — every posture built for stability and depth.</p>
           <a class="current-link" href="https://chat.whatsapp.com/Hjp1t1T7gLN2Tsj217ojOn" target="_blank" rel="noopener noreferrer">
-            Reserve your spot
+            Reserve via WhatsApp
             <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
         </div>
@@ -780,58 +724,61 @@
   <!-- 04 · ISLES -->
   <section class="isles" id="sessions" aria-labelledby="isles-heading">
     <header class="isles-header">
-      <p class="isles-header-label reveal" data-reveal>Where we practice</p>
-      <h2 class="isles-header-title font-display reveal" data-reveal id="isles-heading">Sessions, wherever stillness fits</h2>
-      <p class="isles-header-sub reveal" data-reveal>Private and small-group sessions in the setting that suits you — open air, studio, or a space of your own.</p>
+      <p class="isles-header-label reveal" data-reveal>Sessions</p>
+      <h2 class="isles-header-title font-display reveal" data-reveal id="isles-heading">Studio · Beach · Private</h2>
+      <p class="isles-header-sub reveal" data-reveal>Private and small-group sessions in the setting that suits you — open air, a quiet studio, or your own space.</p>
     </header>
 
     <div class="isles-field">
-      <article class="isle isle--sea reveal" data-reveal data-parallax="0.08">
-        <div class="isle-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M18.4 5.6L17 7M7 17l-1.4 1.4"/></svg>
+      <article class="isle isle--sea reveal" data-reveal>
+        <div class="isle-body">
+          <div class="isle-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M18.4 5.6L17 7M7 17l-1.4 1.4"/></svg>
+          </div>
+          <h3 class="isle-title font-display">Sunrise by the sea</h3>
+          <p class="isle-desc">Open-air practice as morning light meets the water — a seasonal session for those who move best outdoors.</p>
         </div>
-        <h3 class="isle-title font-display">Sunrise by the sea</h3>
-        <p class="isle-desc">Open-air practice as the sun rises over the water — a seasonal, limited-availability session for those who practice best outdoors.</p>
-        <div class="isle-tags">
-          <span class="isle-tag">Seasonal</span>
-          <span class="isle-tag">Small group</span>
+        <div class="isle-foot">
+          <span class="isle-note">Seasonal · Small group</span>
+          <a class="isle-link" href="https://chat.whatsapp.com/Hjp1t1T7gLN2Tsj217ojOn" target="_blank" rel="noopener noreferrer">
+            Ask about dates
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
         </div>
-        <a class="isle-link" href="https://chat.whatsapp.com/Hjp1t1T7gLN2Tsj217ojOn" target="_blank" rel="noopener noreferrer">
-          Ask about dates
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
       </article>
 
-      <article class="isle isle--studio reveal" data-reveal data-parallax="0.12">
-        <div class="isle-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="4" y="9" width="16" height="11" rx="1"/><path d="M9 20v-5h6v5M4 9l8-5 8 5"/></svg>
+      <article class="isle isle--studio reveal" data-reveal>
+        <div class="isle-body">
+          <div class="isle-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="4" y="9" width="16" height="11" rx="1"/><path d="M9 20v-5h6v5M4 9l8-5 8 5"/></svg>
+          </div>
+          <h3 class="isle-title font-display">Studio sessions</h3>
+          <p class="isle-desc">Private or small-group practice in a quiet, fully equipped studio — consistent, focused, and free of distraction.</p>
         </div>
-        <h3 class="isle-title font-display">Studio sessions</h3>
-        <p class="isle-desc">Private or small-group sessions in a quiet, fully-equipped studio space — consistent, focused, and distraction-free.</p>
-        <div class="isle-tags">
-          <span class="isle-tag">1:1 or group</span>
-          <span class="isle-tag">Weekly</span>
+        <div class="isle-foot">
+          <span class="isle-note">1:1 or group · Weekly</span>
+          <a class="isle-link" href="https://chat.whatsapp.com/Hjp1t1T7gLN2Tsj217ojOn" target="_blank" rel="noopener noreferrer">
+            Book the studio
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
         </div>
-        <a class="isle-link" href="https://chat.whatsapp.com/Hjp1t1T7gLN2Tsj217ojOn" target="_blank" rel="noopener noreferrer">
-          Book the studio
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
       </article>
 
-      <article class="isle isle--home reveal" data-reveal data-parallax="0.06">
-        <div class="isle-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M12 21s-7-5.5-7-11a7 7 0 0114 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>
+      <article class="isle isle--home reveal" data-reveal>
+        <div class="isle-body">
+          <div class="isle-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M12 21s-7-5.5-7-11a7 7 0 0114 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>
+          </div>
+          <h3 class="isle-title font-display">Your space</h3>
+          <p class="isle-desc">One-on-one sessions at your home or gym — shaped entirely around your schedule, goals, and pace.</p>
         </div>
-        <h3 class="isle-title font-display">Your space</h3>
-        <p class="isle-desc">One-on-one sessions brought to your home or gym, built entirely around your schedule, goals, and pace.</p>
-        <div class="isle-tags">
-          <span class="isle-tag">1:1 private</span>
-          <span class="isle-tag">By appointment</span>
+        <div class="isle-foot">
+          <span class="isle-note">1:1 private · By appointment</span>
+          <a class="isle-link" href="https://chat.whatsapp.com/Hjp1t1T7gLN2Tsj217ojOn" target="_blank" rel="noopener noreferrer">
+            Request a visit
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
         </div>
-        <a class="isle-link" href="https://chat.whatsapp.com/Hjp1t1T7gLN2Tsj217ojOn" target="_blank" rel="noopener noreferrer">
-          Request a visit
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
       </article>
     </div>
   </section>
@@ -840,8 +787,8 @@
   <section class="whisper" aria-label="Quote">
     <span class="whisper-mark font-display" aria-hidden="true">&ldquo;</span>
     <blockquote class="whisper-inner">
-      <p class="whisper-text font-display reveal" data-reveal>From physical strength to inner intuition — every breath is a step toward balance.</p>
-      <cite class="whisper-attr reveal" data-reveal>Nora · Vinyasa Yoga</cite>
+      <p class="whisper-text font-display reveal">Strength in the body. Quiet in the mind. Balance in every breath.</p>
+      <cite class="whisper-attr">Nora</cite>
     </blockquote>
   </section>
 
@@ -850,12 +797,12 @@
     <div class="arrival-inner">
       <div class="arrival-form reveal-scale" data-reveal>
         <div class="arrival-glow" aria-hidden="true"></div>
-        <p class="arrival-label">Begin</p>
-        <h2 class="arrival-title font-display" id="arrival-heading">Your first breath starts here</h2>
-        <p class="arrival-desc">Message Nora directly to find the practice, place, and time that fits you.</p>
+        <p class="arrival-label">Contact</p>
+        <h2 class="arrival-title font-display" id="arrival-heading">Begin with one message</h2>
+        <p class="arrival-desc">Reach out directly to find the practice, setting, and time that fit you.</p>
         <a class="action action--solid" href="https://chat.whatsapp.com/Hjp1t1T7gLN2Tsj217ojOn" target="_blank" rel="noopener noreferrer">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M20.5 3.5A10 10 0 003.8 16.4L2 22l5.8-1.7A10 10 0 1020.5 3.5z"/></svg>
-          Start your practice
+          Message on WhatsApp
         </a>
       </div>
 
@@ -897,11 +844,12 @@
 
   /* Threshold entrance */
   if (!reduced) {
-    gsap.set('.threshold [data-reveal]:not(.threshold-portrait)', { opacity: 0, y: 28 });
-    gsap.set('.threshold-portrait', { opacity: 0, scale: 0.92 });
-    gsap.timeline({ defaults: { ease: 'power3.out' }, delay: 0.2 })
-      .to('.threshold [data-reveal]:not(.threshold-portrait)', { opacity: 1, y: 0, duration: 1, stagger: 0.1 }, 0)
-      .to('.threshold-portrait', { opacity: 1, scale: 1, duration: 1.3, ease: 'power2.out' }, 0.2);
+    gsap.set('.threshold [data-reveal]', { opacity: 0, y: 28 });
+    gsap.timeline({ defaults: { ease: 'power3.out' }, delay: 0.15 })
+      .to('.threshold-kicker', { opacity: 1, y: 0, duration: 0.8 }, 0)
+      .to('.threshold-title', { opacity: 1, y: 0, duration: 1.1, ease: 'power2.out' }, 0.08)
+      .to('.threshold-role, .threshold-headline', { opacity: 1, y: 0, duration: 0.9, stagger: 0.08 }, 0.22)
+      .to('.threshold-lead, .threshold-actions, .threshold-scroll', { opacity: 1, y: 0, duration: 0.85, stagger: 0.1 }, 0.38);
   } else {
     document.querySelectorAll('[data-reveal], .reveal, .reveal-scale').forEach(el => {
       el.style.opacity = 1;
@@ -924,16 +872,13 @@
     );
   });
 
-  /* Current panels — images stay fixed in frame */
-
-  /* Isles floating parallax */
+  /* Current panels — subtle image drift on scroll */
   if (!reduced) {
-    document.querySelectorAll('[data-parallax]').forEach((el) => {
-      const amount = parseFloat(el.dataset.parallax) || 0.1;
-      gsap.to(el, {
-        y: () => -window.innerHeight * amount,
+    document.querySelectorAll('.current-image img').forEach((img) => {
+      gsap.fromTo(img, { yPercent: -2 }, {
+        yPercent: 2,
         ease: 'none',
-        scrollTrigger: { trigger: el.closest('.isles-field'), start: 'top bottom', end: 'bottom top', scrub: 1.5 }
+        scrollTrigger: { trigger: img.closest('.current'), start: 'top bottom', end: 'bottom top', scrub: 1.4 }
       });
     });
   }
@@ -943,6 +888,10 @@
     gsap.fromTo('.whisper-text', { opacity: 0, scale: 0.92 }, {
       opacity: 1, scale: 1, duration: 1.4, ease: 'power2.out',
       scrollTrigger: { trigger: '.whisper', start: 'top 70%', once: true }
+    });
+    gsap.fromTo('.whisper-attr', { opacity: 0, y: 12 }, {
+      opacity: 1, y: 0, duration: 0.8, ease: 'power2.out',
+      scrollTrigger: { trigger: '.whisper', start: 'top 65%', once: true }
     });
   }
 
